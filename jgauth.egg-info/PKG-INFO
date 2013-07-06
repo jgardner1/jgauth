@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: jgauth
+Version: 0.1dev
+Summary: Auth library for Pylons and such.
+Home-page: http://tech.jonathangardner.net/wiki/Jgauth
+Author: Jonathan Gardner
+Author-email: jgardner@jonathangardner.net
+License: GPL
+Description: UNKNOWN
+Keywords: auth user pylons
+Platform: UNKNOWN

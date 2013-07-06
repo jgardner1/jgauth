@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+jgauth/__init__.py
+jgauth.egg-info/PKG-INFO
+jgauth.egg-info/SOURCES.txt
+jgauth.egg-info/dependency_links.txt
+jgauth.egg-info/entry_points.txt
+jgauth.egg-info/top_level.txt
+jgauth.egg-info/zip-safe
