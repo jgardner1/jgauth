@@ -19,6 +19,7 @@ setup(name='jgauth',
       zip_safe=True,
       install_requires=[
           # -*- Extra requirements: -*-
+          'sqlalchemy',
       ],
       entry_points="""
       # -*- Entry points: -*-

@@ -1,5 +1,5 @@
 """The application's model objects"""
-from .model.meta import Session, Base
+from .meta import Session, Base
 
 import uuid
 import random

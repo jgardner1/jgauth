@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 from decorator import decorator
 
 import formencode
@@ -6,7 +8,7 @@ from formencode import validators
 from pylons import session, tmpl_context as c, url, request
 from pylons.controllers.util import redirect
 
-from ..model import meta, User
+from .model import meta, User
 
 class InvalidLogin(Exception): pass
 class NotLoggedIn(Exception): pass
@@ -38,6 +40,12 @@ def current_user():
     if not user:
         raise NotLoggedIn
     return user
+
+def __before__():
+    try:
+        c.user = current_user()
+    except NotLoggedIn:
+        c.user = None
 
 @decorator
 def requires_login(f, *args, **kw):
