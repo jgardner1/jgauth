@@ -1,3 +1,57 @@
 My authentication library. WIP.
 
 email jgardner@jonathangardner.net with questions.
+
+
+Using With Pylons
+=================
+
+Add as a dependency.
+
+
+In your config/environment.py
+
+  import jgauth.model
+
+  ...
+
+  init_model(engine)
+  jgauth.model.init_model(engine)
+
+
+This will make the model in jgauth part of your model in a web request.
+
+
+In you websetup.py:
+
+@@ -3,6 +3,7 @@ import logging
+ 
+   import jgauth.model.meta as jgauth_meta
+    
+      
+   # Create the tables if they don't already exist
+   Base.metadata.create_all(bind=Session.bind)
+   jgauth_meta.Base.metadata.create_all(bind=Session.bind)
+
+This will cause the tables to be created as part of the setup process.
+
+
+In your lib/base.py:
+
+    import jgauth.pylons
+
+
+    class BaseController(WSGIController):
+
+        def __before__(self):
+            jgauth.pylons.__before__()
+
+This will cause the c.user to be set for every request.
+
+
+You can call the methods in jgauth.pylons to login, logout, register, etc...
+Note that it is assumed you have certain controllers in a certain way. I'll
+have to figure out a way to get that added.
+
+
+"Forgot your password" coming soon.
